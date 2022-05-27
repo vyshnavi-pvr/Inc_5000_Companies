@@ -41,6 +41,7 @@ data = data.assign(increase_staff=data['workers'] - data['previous_workers'])
 print("\nCOMPANY HAVING LARGEST INCREASE IN STAFF", data.increase_staff.idxmax(axis=1))
 print("\nCOMPANY HAVING LARGEST INCREASE IN STAFF", data[data.increase_staff == data.increase_staff.max()].name)
 
+# Did any companies increase revenue while reducing staff?
 
-
+print(data.loc[data.increase_staff < 0.0].loc[data.growth_percent> 100.0].sort_values(by=['increase_staff','growth_percent']))
 
